@@ -1,10 +1,12 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import NavBar from "../Pages/Shared/NavBar";
+const Root = () => {
+  return (
+    <div>
+      <NavBar />
+      <Outlet />
+    </div>
+  );
+};
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <div className="text-3xl">Hello world!</div>,
-  },
-]);
-
-export default router;
+export default Root;

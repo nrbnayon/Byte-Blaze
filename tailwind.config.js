@@ -7,4 +7,7 @@ export default withMT({
     extend: {},
   },
   plugins: [require("daisyui")],
+  daisyui: {
+    themes: ["light", "synthwave"],
+  },
 });
