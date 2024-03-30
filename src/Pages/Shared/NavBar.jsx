@@ -17,7 +17,7 @@ const NavBar = () => {
   }, [theme]);
 
   return (
-    <div className="navbar bg-base-100 shadow-lg px-4 sticky top-0 z-10">
+    <div className="navbar bg-base-100 shadow-lg px-8 md:px-4 fixed z-10">
       <div className="flex-1">
         <Link
           to="/"
@@ -29,15 +29,34 @@ const NavBar = () => {
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1 font-bold">
           <li>
-            <NavLink to="/" className="text-primary">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? "text-primary border border-secondary" : "font-bold"
+              }
+            >
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink to="blogs">Blogs</NavLink>
+            <NavLink
+              to="/blogs"
+              className={({ isActive }) =>
+                isActive ? "text-primary border border-secondary" : "font-bold"
+              }
+            >
+              Blogs
+            </NavLink>
           </li>
           <li>
-            <a>Bookmarks</a>
+            <NavLink
+              to="/bookmarks"
+              className={({ isActive }) =>
+                isActive ? "text-primary border border-secondary" : "font-bold"
+              }
+            >
+              Bookmarks
+            </NavLink>
           </li>
         </ul>
 

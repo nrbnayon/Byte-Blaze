@@ -1,66 +1,11 @@
+import Banner from "../../Components/Banner/Banner";
+import BGImg from "../../assets/wave.svg";
+
 const Home = () => {
   return (
-    <div>
-      <p>
-        i am home Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-        voluptatem tempora vitae animi repudiandae provident. Culpa
-        reprehenderit, corrupti illum ipsam iure assumenda illo delectus
-        consequatur quidem id asperiores error quis!
-      </p>
-      <p>
-        i am home Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-        voluptatem tempora vitae animi repudiandae provident. Culpa
-        reprehenderit, corrupti illum ipsam iure assumenda illo delectus
-        consequatur quidem id asperiores error quis!
-      </p>
-      <p>
-        i am home Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-        voluptatem tempora vitae animi repudiandae provident. Culpa
-        reprehenderit, corrupti illum ipsam iure assumenda illo delectus
-        consequatur quidem id asperiores error quis!
-      </p>
-      <p>
-        i am home Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-        voluptatem tempora vitae animi repudiandae provident. Culpa
-        reprehenderit, corrupti illum ipsam iure assumenda illo delectus
-        consequatur quidem id asperiores error quis!
-      </p>
-      <p>
-        i am home Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-        voluptatem tempora vitae animi repudiandae provident. Culpa
-        reprehenderit, corrupti illum ipsam iure assumenda illo delectus
-        consequatur quidem id asperiores error quis!
-      </p>
-      <p>
-        i am home Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-        voluptatem tempora vitae animi repudiandae provident. Culpa
-        reprehenderit, corrupti illum ipsam iure assumenda illo delectus
-        consequatur quidem id asperiores error quis!
-      </p>
-      <p>
-        i am home Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-        voluptatem tempora vitae animi repudiandae provident. Culpa
-        reprehenderit, corrupti illum ipsam iure assumenda illo delectus
-        consequatur quidem id asperiores error quis!
-      </p>
-      <p>
-        i am home Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-        voluptatem tempora vitae animi repudiandae provident. Culpa
-        reprehenderit, corrupti illum ipsam iure assumenda illo delectus
-        consequatur quidem id asperiores error quis!
-      </p>
-      <p>
-        i am home Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-        voluptatem tempora vitae animi repudiandae provident. Culpa
-        reprehenderit, corrupti illum ipsam iure assumenda illo delectus
-        consequatur quidem id asperiores error quis!
-      </p>
-      <p>
-        i am home Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-        voluptatem tempora vitae animi repudiandae provident. Culpa
-        reprehenderit, corrupti illum ipsam iure assumenda illo delectus
-        consequatur quidem id asperiores error quis!
-      </p>
+    <div className="flex relative flex-col justify-center items-center min-h-[calc(100vh-135px)]">
+      <Banner />
+      <img src={BGImg} className="w-full absolute bottom-0" />
     </div>
   );
 };
