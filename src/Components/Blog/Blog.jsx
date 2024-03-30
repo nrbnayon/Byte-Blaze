@@ -32,7 +32,7 @@ const Blog = ({ blog }) => {
   } = blog;
   return (
     <Link
-      to={`/blog/${id}`}
+      to={`/blog/${parseInt(id)}`}
       className="max-w-sm rounded-md mx-auto group transition border-2 border-opacity-30 border-primary hover:border-secondary hover:scale-105 hover:no-underline focus:no-underline dark:bg-gray-50"
     >
       <img

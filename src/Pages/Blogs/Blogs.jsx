@@ -4,8 +4,6 @@ import DefaultImg from "../../assets/404.jpg";
 
 const Blogs = () => {
   const blogs = useLoaderData();
-
-  console.log(blogs);
   return (
     <div>
       <section className="dark:bg-gray-100 dark:text-gray-800">
