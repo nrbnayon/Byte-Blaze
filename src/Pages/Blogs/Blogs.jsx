@@ -1,9 +1,15 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigation } from "react-router-dom";
 import Blog from "../../Components/Blog/Blog";
 import DefaultImg from "../../assets/404.jpg";
+import LoaderSpinner from "../../Components/LoaderSpinner/LoaderSpinner";
 
 const Blogs = () => {
   const blogs = useLoaderData();
+  const navigation = useNavigation();
+
+  if (navigation.state === "loading" || !blogs) {
+    return <LoaderSpinner />;
+  }
   return (
     <div>
       <section className="dark:bg-gray-100 dark:text-gray-800">
@@ -28,8 +34,8 @@ const Blogs = () => {
             </div>
           </a>
           <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {blogs.map((blog) => (
-              <Blog key={blog.id} blog={blog} />
+            {blogs.slice(1, 19).map((blog) => (
+              <Blog deletable={false} key={blog.id} blog={blog} />
             ))}
           </div>
         </div>

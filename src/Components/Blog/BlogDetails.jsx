@@ -1,12 +1,18 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigation } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import { getStoredBookmarks } from "../../Utils/localStorage";
+import {
+  //   deleteBookmarkBlog,
+  getStoredBookmarks,
+} from "../../Utils/localStorage";
 import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
-import { Audio } from "react-loader-spinner";
+import LoaderSpinner from "../LoaderSpinner/LoaderSpinner";
+import { MdBookmarkAdd } from "react-icons/md";
+import { ToastContainer } from "react-toastify";
 
 const BlogDetails = () => {
+  const navigation = useNavigation();
   const blog = useLoaderData();
   const {
     id,
@@ -14,27 +20,11 @@ const BlogDetails = () => {
     description,
     cover_image,
     published_at,
-    // readable_publish_date,
-    // slug,
-    // path,
-    // url,
     body_html,
-    // comments_count,
     public_reactions_count,
-    // collection_id,
-    // published_timestamp,
-    // positive_reactions_count,
     social_image,
-    // canonical_url,
-    // created_at,
-    // edited_at,
-    // crossposted_at,
-    // last_comment_at,
     reading_time_minutes,
-    // tag_list,
     tags,
-    // organization,
-    // flare_tag,
   } = blog || {};
   const {
     name,
@@ -42,26 +32,20 @@ const BlogDetails = () => {
     profile_image,
     profile_image_90,
     twitter_username,
-    // user_id,
     username,
     website_url,
   } = blog?.user || {};
 
-  if (!blog) {
-    return <div>Loading...</div>;
-  }
   const handleBookmark = () => {
     getStoredBookmarks(parseInt(id));
   };
-  <Audio
-    height="80"
-    width="80"
-    radius="9"
-    color="green"
-    ariaLabel="loading"
-    wrapperStyle
-    wrapperClass
-  />;
+  //   const handleBookmarkDelete = () => {
+  //     deleteBookmarkBlog(parseInt(id));
+  //   };
+  if (navigation.state === "loading" || !blog) {
+    return <LoaderSpinner />;
+  }
+
   return (
     <div className="max-w-3xl px-6 py-16 mx-auto space-y-12">
       <article className="space-y-8 dark:bg-gray-100 dark:text-gray-900">
@@ -85,18 +69,23 @@ const BlogDetails = () => {
             </p>
           </div>
         </div>
-
-        <button
-          onClick={() => handleBookmark()}
-          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
-        >
-          Bookmark
-        </button>
       </article>
       <Tabs>
         <TabList>
           <Tab>Content</Tab>
           <Tab>Author</Tab>
+          <button
+            onClick={() => handleBookmark(id)}
+            className="ml-1 text-2xl p-2 border bg-primary bg-opacity-20 hover:bg-opacity-30 border-gray-400 rounded-full shadow-sm hover:scale-105 overflow-hidden"
+          >
+            <MdBookmarkAdd className="text-secondary" />
+          </button>
+          {/* <button
+            onClick={() => handleBookmarkDelete(id)}
+            className="ml-1 text-2xl p-2 border bg-primary bg-opacity-20 hover:bg-opacity-30 border-gray-400 rounded-full shadow-sm hover:scale-105 overflow-hidden"
+          >
+            <MdBookmarkAdd className="text-secondary" />
+          </button> */}
         </TabList>
 
         <TabPanel>
@@ -124,8 +113,10 @@ const BlogDetails = () => {
             <h1 className="text-4xl font-bold md:tracking-tight md:text-5xl">
               {title}
             </h1>
-            <Markdown rehypePlugins={[rehypeRaw]}>{body_html}</Markdown>
-
+            <div className="w-full overflow-hidden">
+              {" "}
+              <Markdown rehypePlugins={[rehypeRaw]}>{body_html}</Markdown>
+            </div>
             <img src={social_image || profile_image_90} />
           </div>
         </TabPanel>
@@ -192,6 +183,7 @@ const BlogDetails = () => {
           </div>
         </TabPanel>
       </Tabs>
+      <ToastContainer />
     </div>
   );
 };

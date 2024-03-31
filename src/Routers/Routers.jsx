@@ -28,6 +28,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/bookmarks",
+        loader: () => fetch("https://dev.to/api/articles?per_page=20&top=7"),
         element: <Bookmarks />,
       },
     ],

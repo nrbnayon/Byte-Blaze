@@ -21,7 +21,7 @@ const NavBar = () => {
       <div className="flex-1">
         <Link
           to="/"
-          className="btn btn-ghost text-2xl text-secondary normal-case  gap-0"
+          className="btn btn-ghost hidden md:flex text-base md:text-2xl text-secondary normal-case  gap-0"
         >
           Byte<span className="text-primary">Blaze</span>
         </Link>
