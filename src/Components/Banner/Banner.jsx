@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
-    <div className="hero">
+    <div className="hero z-10">
       <div className="hero-content text-center">
         <div className="max-w-lg">
           <h1 className="text-5xl font-bold">
